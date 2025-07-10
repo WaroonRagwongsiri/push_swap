@@ -15,10 +15,13 @@ NAME			:=	push_swap
 CC				:=	cc
 CFLAG			:=	-Wall -Wextra -Werror -g3
 
-SRCS			:=	main.c
+INC_DIR			:=	includes/
+SRCS_DIR		:=	srcs/
 
+SRCS_FILES		:=	main.c
+
+SRCS			:=	$(SRCS_FILES:%.c=$(SRCS_DIR)%.c)
 OBJS			:=	$(SRCS:%.c=%.o)
-INC_DIR		:=	includes/
 
 all				:	$(NAME)
 
