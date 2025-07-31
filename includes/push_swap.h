@@ -28,15 +28,20 @@ int		check_argv(int argc, char **argv);
 int		check_valid(char *str);
 
 // Utils
+void	end(t_list *stack_a, t_list *stack_b);
 void	print_stack(t_list *stack);
+void	print_all_stack(t_list *stack_a, t_list *stack_b);
 void	put_nbr(void *nbr);
 
 // Parser
 void	parser(int argc, char **argv, t_list **head);
 
 // PushSwap
-void	push_swap(t_list *stack_a, t_list *stack_b);
-void	swap_a(t_list *stack_a);
-void	swap_b(t_list *stack_b);
+void	push_swap(t_list **stack_a, t_list **stack_b);
+void	sa(t_list *stack_a);
+void	sb(t_list *stack_b);
+void	ss(t_list *stack_a, t_list *stack_b);
+void	pa(t_list **stack_a, t_list **stack_b);
+void	pb(t_list **stack_a, t_list **stack_b);
 
 #endif

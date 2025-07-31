@@ -21,7 +21,8 @@ SRCS_DIR		:=	srcs/
 SRCS_FILES		:=	main.c \
 					utils/put_error.c utils/check_argv.c utils/parser.c \
 					utils/print_stack.c \
-					swap/push_swap.c swap/sa.c swap/sb.c
+					swap/push_swap.c swap/sa.c swap/sb.c \
+					swap/ss.c swap/pa.c swap/pb.c
 
 SRCS			:=	$(SRCS_FILES:%.c=$(SRCS_DIR)%.c)
 OBJS			:=	$(SRCS:%.c=%.o)

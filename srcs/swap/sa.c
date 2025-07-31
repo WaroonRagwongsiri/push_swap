@@ -6,13 +6,13 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 17:43:20 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/07/31 17:45:43 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/07/31 20:48:44 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap_a(t_list *stack_a)
+void	sa(t_list *stack_a)
 {
 	void	*tmp;
 
