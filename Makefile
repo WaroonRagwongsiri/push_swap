@@ -18,7 +18,10 @@ CFLAG			:=	-Wall -Wextra -Werror -g3
 INC_DIR			:=	includes/
 SRCS_DIR		:=	srcs/
 
-SRCS_FILES		:=	main.c utils/put_error.c utils/check_argv.c
+SRCS_FILES		:=	main.c \
+					utils/put_error.c utils/check_argv.c utils/parser.c \
+					utils/print_stack.c \
+					swap/push_swap.c swap/sa.c swap/sb.c
 
 SRCS			:=	$(SRCS_FILES:%.c=$(SRCS_DIR)%.c)
 OBJS			:=	$(SRCS:%.c=%.o)

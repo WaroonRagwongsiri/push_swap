@@ -21,9 +21,22 @@
 
 // Error
 void	put_error(void);
+void	exit_lst(t_list *stack_a, t_list *stack_b);
 
 // Check Argv
 int		check_argv(int argc, char **argv);
 int		check_valid(char *str);
+
+// Utils
+void	print_stack(t_list *stack);
+void	put_nbr(void *nbr);
+
+// Parser
+void	parser(int argc, char **argv, t_list **head);
+
+// PushSwap
+void	push_swap(t_list *stack_a, t_list *stack_b);
+void	swap_a(t_list *stack_a);
+void	swap_b(t_list *stack_b);
 
 #endif

@@ -1,35 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/10 14:53:00 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/07/31 18:35:28 by waroonwork@      ###   ########.fr       */
+/*   Created: 2025/07/31 14:12:23 by waroonwork@       #+#    #+#             */
+/*   Updated: 2025/07/31 18:06:09 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
-int	main(int argc, char **argv)
+// argv to link list
+void	parser(int argc, char **argv, t_list **head)
 {
-	t_list	*stack_a;
-	t_list	*stack_b;
+	int		i;
+	int		*tmp;
+	t_list	*node;
 
-	if (argc < 2)
-		put_error();
-	if (!check_argv(argc, argv))
-		put_error();
-	stack_a = ft_lstnew((void *) 0);
-	stack_b = ft_lstnew((void *) 0);
-	if (!stack_b || !stack_b)
-		exit_lst(stack_a, stack_b);
-	parser(argc, argv, &stack_a);
-	// print_stack(stack_a);
-	push_swap(stack_a, stack_b);
-
-	// exit_lst(stack_a, stack_b);
-	return (0);
+	i = 0;
+	while (++i < argc)
+	{
+		tmp = ft_calloc(1, sizeof(int));
+		if (!tmp)
+		{
+			ft_lstclear(head, free);
+			free(*head);
+			put_error();
+		}
+		*tmp = ft_atoi(argv[i]);
+		node = ft_lstnew(tmp);
+		if (!node)
+		{
+			ft_lstclear(head, free);
+			free(*head);
+			free(tmp);
+			put_error();
+		}
+		ft_lstadd_back(head, node);
+	}
 }

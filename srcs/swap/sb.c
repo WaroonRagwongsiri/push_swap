@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   sb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/10 14:53:00 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/07/31 18:35:28 by waroonwork@      ###   ########.fr       */
+/*   Created: 2025/07/31 17:45:57 by waroonwork@       #+#    #+#             */
+/*   Updated: 2025/07/31 17:53:35 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
-int	main(int argc, char **argv)
+void	swap_b(t_list *stack_b)
 {
-	t_list	*stack_a;
-	t_list	*stack_b;
+	void	*tmp;
 
-	if (argc < 2)
-		put_error();
-	if (!check_argv(argc, argv))
-		put_error();
-	stack_a = ft_lstnew((void *) 0);
-	stack_b = ft_lstnew((void *) 0);
-	if (!stack_b || !stack_b)
-		exit_lst(stack_a, stack_b);
-	parser(argc, argv, &stack_a);
-	// print_stack(stack_a);
-	push_swap(stack_a, stack_b);
-
-	// exit_lst(stack_a, stack_b);
-	return (0);
+	if (ft_lstsize(stack_b) == 0 || ft_lstsize(stack_b) == 1)
+		return ;
+	tmp = stack_b->content;
+	stack_b->content = stack_b->next->content;
+	stack_b->next->content = tmp;
 }
