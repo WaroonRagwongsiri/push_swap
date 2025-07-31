@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   rb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/31 17:35:12 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/07/31 23:36:56 by waroonwork@      ###   ########.fr       */
+/*   Created: 2025/07/31 23:36:10 by waroonwork@       #+#    #+#             */
+/*   Updated: 2025/07/31 23:36:22 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// push_swap
-void	push_swap(t_list **stack_a, t_list **stack_b)
+void	rb(t_list **stack_b)
 {
-	ra(stack_a);
-	pb(stack_a, stack_b);
-	pb(stack_a, stack_b);
-	rb(stack_b);
-	print_all_stack(*stack_a, *stack_b);
+	t_list	*current;
+	t_list	*last;
+
+	if (ft_lstsize(*stack_b) == 0 || ft_lstsize(*stack_b) == 1)
+		return ;
+	current = *stack_b;
+	last = ft_lstlast(*stack_b);
+	while (current->next->next != NULL)
+	{
+		current = current->next;
+	}
+	current->next = NULL;
+	ft_lstadd_front(stack_b, last);
 }
