@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   put_error.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/10 14:53:00 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/07/31 14:09:05 by waroonwork@      ###   ########.fr       */
+/*   Created: 2025/07/31 12:46:36 by waroonwork@       #+#    #+#             */
+/*   Updated: 2025/07/31 14:09:11 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
-int	main(int argc, char **argv)
+void	put_error(void)
 {
-	if (argc < 2)
-		put_error();
-	if (!check_argv(argc, argv))
-		put_error();
-	return (0);
+	write(2, "Error\n", 6);
+	exit(1);
 }

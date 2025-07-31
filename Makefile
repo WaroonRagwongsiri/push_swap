@@ -18,7 +18,7 @@ CFLAG			:=	-Wall -Wextra -Werror -g3
 INC_DIR			:=	includes/
 SRCS_DIR		:=	srcs/
 
-SRCS_FILES		:=	main.c
+SRCS_FILES		:=	main.c utils/put_error.c utils/check_argv.c
 
 SRCS			:=	$(SRCS_FILES:%.c=$(SRCS_DIR)%.c)
 OBJS			:=	$(SRCS:%.c=%.o)
@@ -26,16 +26,21 @@ OBJS			:=	$(SRCS:%.c=%.o)
 all				:	$(NAME)
 
 $(NAME)			:	$(OBJS) Makefile
-	$(CC) $(CFLAG) -I$(INC_DIR) $< -o $@
+	@make -C libft
+	@cp libft/libft.a .
+	$(CC) $(CFLAG) -I$(INC_DIR) $(OBJS) libft.a -o $@
 
 $(OBJS)			:	%.o : %.c
 	@$(CC) $(CFLAG) -I$(INC_DIR) -c $< -o $@
 
 clean			:
 	rm -rf $(OBJS)
+	@make -C libft clean
 
 fclean			:	clean
 	rm -rf $(NAME)
+	rm -rf libft.a
+	@make-C libft fclean
 
 re				:	fclean all
 

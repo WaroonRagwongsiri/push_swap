@@ -13,8 +13,17 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+// Includes
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdlib.h>
+# include "../libft/includes/libft.h"
+
+// Error
+void	put_error(void);
+
+// Check Argv
+int		check_argv(int argc, char **argv);
+int		check_valid(char *str);
 
 #endif

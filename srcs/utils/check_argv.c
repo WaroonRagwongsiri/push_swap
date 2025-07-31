@@ -1,23 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   check_argv.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/10 14:53:00 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/07/31 14:09:05 by waroonwork@      ###   ########.fr       */
+/*   Created: 2025/07/31 12:59:29 by waroonwork@       #+#    #+#             */
+/*   Updated: 2025/07/31 14:06:45 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
-int	main(int argc, char **argv)
+// return 0 if valid return 1 if not valid
+int	check_argv(int argc, char **argv)
 {
-	if (argc < 2)
-		put_error();
-	if (!check_argv(argc, argv))
-		put_error();
+	int	i;
+
+	i = 1;
+	while (i < argc)
+	{
+		if (check_valid(argv[i]) == 1)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+// return 0 if valid 1 if not
+int	check_valid(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (1);
+		i++;
+	}
 	return (0);
 }
