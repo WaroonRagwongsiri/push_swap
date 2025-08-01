@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rr.c                                               :+:      :+:    :+:   */
+/*   rrb.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/01 12:16:48 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/08/01 12:18:03 by waroonwork@      ###   ########.fr       */
+/*   Created: 2025/07/31 23:36:10 by waroonwork@       #+#    #+#             */
+/*   Updated: 2025/08/01 12:11:16 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rr(t_list **stack_a, t_list **stack_b)
+void	rrb(t_list **stack_b)
 {
-	ra(stack_a);
-	rb(stack_b);
+	t_list	*current;
+	t_list	*last;
+
+	if (ft_lstsize(*stack_b) == 0 || ft_lstsize(*stack_b) == 1)
+		return ;
+	current = *stack_b;
+	last = ft_lstlast(*stack_b);
+	while (current->next->next != NULL)
+	{
+		current = current->next;
+	}
+	current->next = NULL;
+	ft_lstadd_front(stack_b, last);
 }

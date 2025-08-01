@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/31 23:28:52 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/07/31 23:35:31 by waroonwork@      ###   ########.fr       */
+/*   Created: 2025/08/01 12:12:07 by waroonwork@       #+#    #+#             */
+/*   Updated: 2025/08/01 12:15:43 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,12 @@
 
 void	ra(t_list **stack_a)
 {
-	t_list	*current;
-	t_list	*last;
+	t_list	*first;
 
 	if (ft_lstsize(*stack_a) == 0 || ft_lstsize(*stack_a) == 1)
 		return ;
-	current = *stack_a;
-	last = ft_lstlast(*stack_a);
-	while (current->next->next != NULL)
-	{
-		current = current->next;
-	}
-	current->next = NULL;
-	ft_lstadd_front(stack_a, last);
+	first = *stack_a;
+	*stack_a = (*stack_a)->next;
+	first->next = NULL;
+	ft_lstlast(*stack_a)->next = first;
 }
