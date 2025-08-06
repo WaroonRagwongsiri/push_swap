@@ -63,8 +63,8 @@ void	pb(t_stack **stack_a, t_stack **stack_b);
 void	ra(t_stack **stack_a);
 void	rb(t_stack **stack_b);
 void	rr(t_stack **stack_a, t_stack **stack_b);
-void	rra(t_list **stack_a);
-void	rrb(t_list **stack_b);
-void	rrr(t_list **stack_a, t_list **stack_b);
+void	rra(t_stack **stack_a);
+void	rrb(t_stack **stack_b);
+void	rrr(t_stack **stack_a, t_stack **stack_b);
 
 #endif

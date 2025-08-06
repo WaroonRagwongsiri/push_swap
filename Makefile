@@ -26,8 +26,7 @@ SRCS_FILES		:=	main.c \
 					utils/ft_stack_last.c \
 					swap/push_swap.c \
 					swap/pb.c swap/pa.c \
-					swap/ss.c \
-					swap/rr.c \
+					swap/ss.c swap/rr.c swap/rrr.c \
 
 SRCS			:=	$(SRCS_FILES:%.c=$(SRCS_DIR)%.c)
 OBJS			:=	$(SRCS:%.c=%.o)
