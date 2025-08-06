@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_stacknew.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/10 14:53:00 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/08/06 17:37:00 by waroonwork@      ###   ########.fr       */
+/*   Created: 2025/08/06 11:40:26 by waroonwork@       #+#    #+#             */
+/*   Updated: 2025/08/06 15:44:27 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+t_stack	*ft_stacknew(long val)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
+	t_stack	*new;
 
-	if (argc < 2)
-		put_error();
-	if (!check_argv(argc, argv))
-		put_error();
-	stack_a = NULL;
-	stack_b = NULL;
-	parser(argc, argv, &stack_a);
-	push_swap(&stack_a, &stack_b);
-	end(&stack_a, &stack_b);
-	return (0);
-}
-
-void	end(t_stack **stack_a, t_stack **stack_b)
-{
-	ft_stackclear(stack_a);
-	ft_stackclear(stack_b);
-	exit(0);
+	new = ft_calloc(1, sizeof(t_stack));
+	new->val = val;
+	new->index = -1;
+	new->next = NULL;
+	new->prev = NULL;
+	return (new);
 }

@@ -20,11 +20,12 @@ SRCS_DIR		:=	srcs/
 
 SRCS_FILES		:=	main.c \
 					utils/put_error.c utils/check_argv.c utils/parser.c \
-					utils/print_stack.c \
+					utils/ft_stacknew.c utils/ft_stackclear.c \
+					utils/print_stack.c utils/ft_stack_size.c \
+					utils/ft_stackadd_back.c utils/ft_stackadd_front.c \
+					utils/ft_stack_last.c \
 					swap/push_swap.c \
-					swap/ss.c \
-					swap/pa.c swap/pb.c \
-					swap/rr.c swap/rrr.c
+					swap/pb.c swap/pa.c
 
 SRCS			:=	$(SRCS_FILES:%.c=$(SRCS_DIR)%.c)
 OBJS			:=	$(SRCS:%.c=%.o)

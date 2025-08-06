@@ -19,6 +19,23 @@
 # include <stdlib.h>
 # include "../libft/includes/libft.h"
 
+// Stack
+typedef	struct	s_stack
+{
+	long long		val;
+	long			index;
+	struct s_stack	*next;
+	struct s_stack	*prev;
+}	t_stack;
+
+// Stack
+t_stack	*ft_stacknew(long val);
+void	ft_stackclear(t_stack **head);
+void	ft_stackadd_back(t_stack **head, t_stack *new);
+void	ft_stackadd_front(t_stack **head, t_stack *new);
+int		ft_stack_size(t_stack *stack);
+t_stack	*ft_stack_last(t_stack *stack);
+
 // Error
 void	put_error(void);
 void	exit_lst(t_list *stack_a, t_list *stack_b);
@@ -28,21 +45,21 @@ int		check_argv(int argc, char **argv);
 int		check_valid(char *str);
 
 // Utils
-void	end(t_list *stack_a, t_list *stack_b);
-void	print_stack(t_list *stack);
-void	print_all_stack(t_list *stack_a, t_list *stack_b);
+void	end(t_stack **stack_a, t_stack **stack_b);
+void	print_stack(t_stack *stack);
+void	print_all_stack(t_stack *stack_a, t_stack *stack_b);
 void	put_nbr(void *nbr);
 
 // Parser
-void	parser(int argc, char **argv, t_list **head);
+void	parser(int argc, char **argv, t_stack **head);
 
 // PushSwap
-void	push_swap(t_list **stack_a, t_list **stack_b);
+void	push_swap(t_stack **stack_a, t_stack **stack_b);
 void	sa(t_list *stack_a);
 void	sb(t_list *stack_b);
 void	ss(t_list *stack_a, t_list *stack_b);
-void	pa(t_list **stack_a, t_list **stack_b);
-void	pb(t_list **stack_a, t_list **stack_b);
+void	pa(t_stack **stack_a, t_stack **stack_b);
+void	pb(t_stack **stack_a, t_stack **stack_b);
 void	ra(t_list **stack_a);
 void	rb(t_list **stack_b);
 void	rr(t_list **stack_a, t_list **stack_b);
