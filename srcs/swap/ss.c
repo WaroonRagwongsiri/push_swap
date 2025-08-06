@@ -6,35 +6,35 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 20:25:53 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/08/01 22:46:10 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/08/06 18:39:53 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_list *stack_a)
+void	sa(t_stack *stack_a)
 {
-	void	*tmp;
+	long	tmp;
 
-	if (ft_lstsize(stack_a) == 0 || ft_lstsize(stack_a) == 1)
+	if (ft_stack_size(stack_a) == 0 || ft_stack_size(stack_a) == 1)
 		return ;
-	tmp = stack_a->content;
-	stack_a->content = stack_a->next->content;
-	stack_a->next->content = tmp;
+	tmp = stack_a->val;
+	stack_a->val = stack_a->next->val;
+	stack_a->next->val = tmp;
 }
 
-void	sb(t_list *stack_b)
+void	sb(t_stack *stack_b)
 {
-	void	*tmp;
+	long	tmp;
 
-	if (ft_lstsize(stack_b) == 0 || ft_lstsize(stack_b) == 1)
+	if (ft_stack_size(stack_b) == 0 || ft_stack_size(stack_b) == 1)
 		return ;
-	tmp = stack_b->content;
-	stack_b->content = stack_b->next->content;
-	stack_b->next->content = tmp;
+	tmp = stack_b->val;
+	stack_b->val = stack_b->next->val;
+	stack_b->next->val = tmp;
 }
 
-void	ss(t_list *stack_a, t_list *stack_b)
+void	ss(t_stack *stack_a, t_stack *stack_b)
 {
 	sa(stack_a);
 	sb(stack_b);

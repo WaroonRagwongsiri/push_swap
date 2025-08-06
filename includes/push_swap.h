@@ -55,9 +55,9 @@ void	parser(int argc, char **argv, t_stack **head);
 
 // PushSwap
 void	push_swap(t_stack **stack_a, t_stack **stack_b);
-void	sa(t_list *stack_a);
-void	sb(t_list *stack_b);
-void	ss(t_list *stack_a, t_list *stack_b);
+void	sa(t_stack *stack_a);
+void	sb(t_stack *stack_b);
+void	ss(t_stack *stack_a, t_stack *stack_b);
 void	pa(t_stack **stack_a, t_stack **stack_b);
 void	pb(t_stack **stack_a, t_stack **stack_b);
 void	ra(t_list **stack_a);
