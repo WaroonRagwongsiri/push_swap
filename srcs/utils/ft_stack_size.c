@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 17:21:07 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/08/06 17:23:33 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/08/06 19:31:59 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ int	ft_stack_size(t_stack *stack)
 		len++;
 		stack = stack->next;
 	}
-	return (len);	
+	return (len);
 }

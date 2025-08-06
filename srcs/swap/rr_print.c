@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pa.c                                               :+:      :+:    :+:   */
+/*   rr_print.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/31 20:29:21 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/08/06 18:33:33 by waroonwork@      ###   ########.fr       */
+/*   Created: 2025/08/06 19:48:26 by waroonwork@       #+#    #+#             */
+/*   Updated: 2025/08/06 19:50:03 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(t_stack **stack_a, t_stack **stack_b)
+void	rr_print(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack	*first;
-	t_stack	*curr;
+	rr(stack_a, stack_b);
+	ft_putstr_fd("rr\n", 1);
+}
 
-	if (ft_stack_size(*stack_b) == 0)
-		return ;
-	first = *stack_b;
-	*stack_b = (*stack_b)->next;
-	curr = *stack_b;
-	while (curr)
-	{
-		curr->index -= 1;
-		curr = curr->next;
-	}
-	first->next = NULL;
-	first->prev = NULL;
-	ft_stackadd_front(stack_a, first);
+void	ra_print(t_stack **stack_a)
+{
+	ra(stack_a);
+	ft_putstr_fd("ra\n", 1);
+}
+
+void	rb_print(t_stack **stack_b)
+{
+	rb(stack_b);
+	ft_putstr_fd("rb\n", 1);
 }

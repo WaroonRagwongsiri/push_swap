@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack_last.c                                    :+:      :+:    :+:   */
+/*   pp_print.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/06 17:26:25 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/08/06 19:32:10 by waroonwork@      ###   ########.fr       */
+/*   Created: 2025/08/06 19:46:13 by waroonwork@       #+#    #+#             */
+/*   Updated: 2025/08/06 19:47:40 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*ft_stack_last(t_stack *stack)
+void	pa_print(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack	*last;
+	pa(stack_a, stack_b);
+	ft_putstr_fd("pa\n", 1);
+}
 
-	last = NULL;
-	if (stack == NULL)
-		return (NULL);
-	while (stack->next)
-	{
-		stack = stack->next;
-	}
-	last = stack;
-	return (last);
+void	pb_print(t_stack **stack_a, t_stack **stack_b)
+{
+	pb(stack_a, stack_b);
+	ft_putstr_fd("pb\n", 1);
 }

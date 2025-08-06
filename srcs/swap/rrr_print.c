@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack_last.c                                    :+:      :+:    :+:   */
+/*   rrr_print.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/06 17:26:25 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/08/06 19:32:10 by waroonwork@      ###   ########.fr       */
+/*   Created: 2025/08/06 19:54:52 by waroonwork@       #+#    #+#             */
+/*   Updated: 2025/08/06 19:56:31 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*ft_stack_last(t_stack *stack)
+void	rrr_print(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack	*last;
+	rrr(stack_a, stack_b);
+	ft_putstr_fd("rrr\n", 1);
+}
 
-	last = NULL;
-	if (stack == NULL)
-		return (NULL);
-	while (stack->next)
-	{
-		stack = stack->next;
-	}
-	last = stack;
-	return (last);
+void	rra_print(t_stack **stack_a)
+{
+	rra(stack_a);
+	ft_putstr_fd("rra\n", 1);
+}
+
+void	rrb_print(t_stack **stack_b)
+{
+	rrb(stack_b);
+	ft_putstr_fd("rrb\n", 1);
 }
