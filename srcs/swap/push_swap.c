@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 17:35:12 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/09/07 20:06:40 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/07 20:19:21 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,19 +57,19 @@ void	sort_three(t_stack **stack)
 	middle = (*stack)->next->val;
 	last = (*stack)->next->next->val;
 	if (top > middle && top < last)
-		sa(stack);
+		sa(*stack);
 	else if (top > middle && top > last)
 	{
 		ra(stack);
 		if (is_sort(stack))
 			return ;
-		sa(stack);
+		sa(*stack);
 	}
 	else
 	{
 		rra(stack);
 		if (is_sort(stack))
 			return ;
-		sa(stack);
+		sa(*stack);
 	}
 }
