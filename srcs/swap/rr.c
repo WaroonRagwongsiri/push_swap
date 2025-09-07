@@ -6,13 +6,13 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 12:16:48 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/08/06 18:43:41 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/07 21:51:44 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_stack **stack_a)
+void	ra(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*first;
 
@@ -23,9 +23,11 @@ void	ra(t_stack **stack_a)
 	first->next = NULL;
 	first->prev = ft_stack_last(*stack_a);
 	ft_stack_last(*stack_a)->next = first;
+	if (sol_list("ra") < 0)
+		end(stack_a, stack_b);
 }
 
-void	rb(t_stack **stack_b)
+void	rb(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*first;
 
@@ -36,10 +38,12 @@ void	rb(t_stack **stack_b)
 	first->next = NULL;
 	first->prev = ft_stack_last(*stack_b);
 	ft_stack_last(*stack_b)->next = first;
+	if (sol_list("rb") < 0)
+		end(stack_a, stack_b);
 }
 
 void	rr(t_stack **stack_a, t_stack **stack_b)
 {
-	ra(stack_a);
-	rb(stack_b);
+	ra(stack_a, stack_b);
+	rb(stack_a, stack_b);
 }

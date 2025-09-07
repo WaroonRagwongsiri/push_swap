@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pa.c                                               :+:      :+:    :+:   */
+/*   pp.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 20:29:21 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/08/06 19:44:30 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/07 21:50:09 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 	first->next = NULL;
 	first->prev = NULL;
 	ft_stackadd_front(stack_a, first);
+	if (sol_list("pa") < 0)
+		end(stack_a, stack_b);
 }
 
 void	pb(t_stack **stack_a, t_stack **stack_b)
@@ -50,4 +52,6 @@ void	pb(t_stack **stack_a, t_stack **stack_b)
 	first->next = NULL;
 	first->prev = NULL;
 	ft_stackadd_front(stack_b, first);
+	if (sol_list("pb") < 0)
+		end(stack_a, stack_b);
 }

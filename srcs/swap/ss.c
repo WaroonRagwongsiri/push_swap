@@ -6,36 +6,40 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 20:25:53 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/08/06 18:39:53 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/07 21:51:35 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack *stack_a)
+void	sa(t_stack **stack_a, t_stack **stack_b)
 {
 	long	tmp;
 
-	if (ft_stack_size(stack_a) == 0 || ft_stack_size(stack_a) == 1)
+	if (ft_stack_size((*stack_a)) == 0 || ft_stack_size((*stack_a)) == 1)
 		return ;
-	tmp = stack_a->val;
-	stack_a->val = stack_a->next->val;
-	stack_a->next->val = tmp;
+	tmp = (*stack_a)->val;
+	(*stack_a)->val = (*stack_a)->next->val;
+	(*stack_a)->next->val = tmp;
+	if (sol_list("sa") < 0)
+		end(stack_a, stack_b);
 }
 
-void	sb(t_stack *stack_b)
+void	sb(t_stack **stack_a, t_stack **stack_b)
 {
 	long	tmp;
 
-	if (ft_stack_size(stack_b) == 0 || ft_stack_size(stack_b) == 1)
+	if (ft_stack_size((*stack_b)) == 0 || ft_stack_size((*stack_b)) == 1)
 		return ;
-	tmp = stack_b->val;
-	stack_b->val = stack_b->next->val;
-	stack_b->next->val = tmp;
+	tmp = (*stack_b)->val;
+	(*stack_b)->val = (*stack_b)->next->val;
+	(*stack_b)->next->val = tmp;
+	if (sol_list("sb") < 0)
+		end(stack_a, stack_b);
 }
 
-void	ss(t_stack *stack_a, t_stack *stack_b)
+void	ss(t_stack **stack_a, t_stack **stack_b)
 {
-	sa(stack_a);
-	sb(stack_b);
+	sa(stack_a, stack_b);
+	sb(stack_a, stack_b);
 }

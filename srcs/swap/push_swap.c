@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 17:35:12 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/09/07 21:13:04 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/07 21:53:51 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	push_swap(t_stack **stack_a, t_stack **stack_b)
 {
 	if (ft_stack_size(*stack_a) <= 3)
-		small_sort(stack_a);
+		small_sort(stack_a, stack_b);
 	print_all_stack(*stack_a, *stack_b);
 }
 
@@ -34,7 +34,7 @@ int	is_sort(t_stack **stack_a)
 	return (1);
 }
 
-void	small_sort(t_stack **stack_a)
+void	small_sort(t_stack **stack_a, t_stack **stack_b)
 {
 	if (ft_stack_size(*stack_a) == 0 || ft_stack_size(*stack_a) == 1
 		|| is_sort(stack_a))
@@ -42,35 +42,35 @@ void	small_sort(t_stack **stack_a)
 	if (ft_stack_size((*stack_a)) == 2)
 	{
 		ft_putstr_fd("sa\n", 1);
-		sa(*stack_a);
+		sa(stack_a, stack_b);
 		return ;
 	}
-	sort_three(stack_a);
+	sort_three(stack_a, stack_b);
 }
 
-void	sort_three(t_stack **stack)
+void	sort_three(t_stack **stack_a, t_stack **stack_b)
 {
 	long	top;
 	long	middle;
 	long	last;
 
-	top = (*stack)->val;
-	middle = (*stack)->next->val;
-	last = (*stack)->next->next->val;
+	top = (*stack_a)->val;
+	middle = (*stack_a)->next->val;
+	last = (*stack_a)->next->next->val;
 	if (top > middle && top < last)
-		sa(*stack);
+		sa(stack_a, stack_b);
 	else if (top > middle && top > last)
 	{
-		ra(stack);
-		if (is_sort(stack))
+		ra(stack_a, stack_b);
+		if (is_sort(stack_a))
 			return ;
-		sa(*stack);
+		sa(stack_a, stack_b);
 	}
 	else
 	{
-		rra(stack);
-		if (is_sort(stack))
+		rra(stack_a, stack_b);
+		if (is_sort(stack_a))
 			return ;
-		sa(*stack);
+		sa(stack_a, stack_b);
 	}
 }

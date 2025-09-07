@@ -6,13 +6,13 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 23:37:38 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/08/06 18:45:45 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/07 21:51:40 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rra(t_stack **stack_a)
+void	rra(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*current;
 	t_stack	*last;
@@ -27,9 +27,11 @@ void	rra(t_stack **stack_a)
 	}
 	current->next = NULL;
 	ft_stackadd_front(stack_a, last);
+	if (sol_list("rra") < 0)
+		end(stack_a, stack_b);
 }
 
-void	rrb(t_stack **stack_b)
+void	rrb(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*current;
 	t_stack	*last;
@@ -44,10 +46,12 @@ void	rrb(t_stack **stack_b)
 	}
 	current->next = NULL;
 	ft_stackadd_front(stack_b, last);
+	if (sol_list("rrb") < 0)
+		end(stack_a, stack_b);
 }
 
 void	rrr(t_stack **stack_a, t_stack **stack_b)
 {
-	rra(stack_a);
-	rrb(stack_b);
+	rra(stack_a, stack_b);
+	rrb(stack_a, stack_b);
 }
