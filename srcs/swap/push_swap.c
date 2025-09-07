@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 17:35:12 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/09/07 21:06:05 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/07 21:13:04 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ int	is_sort(t_stack **stack_a)
 
 void	small_sort(t_stack **stack_a)
 {
-	if (ft_stack_size(*stack_a) == 0 || ft_stack_size(*stack_a) == 1 || is_sort(stack_a))
+	if (ft_stack_size(*stack_a) == 0 || ft_stack_size(*stack_a) == 1
+		|| is_sort(stack_a))
 		return ;
 	if (ft_stack_size((*stack_a)) == 2)
 	{

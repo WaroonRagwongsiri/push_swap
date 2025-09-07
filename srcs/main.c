@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 14:53:00 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/09/07 21:06:36 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/07 21:41:03 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ void	end(t_stack **stack_a, t_stack **stack_b)
 {
 	ft_stackclear(stack_a);
 	ft_stackclear(stack_b);
+	sol_list("free");
 	exit(0);
 }

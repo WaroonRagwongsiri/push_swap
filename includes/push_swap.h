@@ -20,7 +20,7 @@
 # include "../libft/includes/libft.h"
 
 // Stack
-typedef	struct	s_stack
+typedef struct s_stack
 {
 	long long		val;
 	long			index;
@@ -50,6 +50,11 @@ void	end(t_stack **stack_a, t_stack **stack_b);
 void	print_stack(t_stack *stack);
 void	print_all_stack(t_stack *stack_a, t_stack *stack_b);
 void	put_nbr(void *nbr);
+
+// List Command uses Utils
+void	do_nothing(void *ptr);
+int		sol_list(char *str);
+void	print_iter(void *ptr);
 
 // Parser
 void	parser(int argc, char **argv, t_stack **head);

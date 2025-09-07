@@ -24,6 +24,7 @@ SRCS_FILES		:=	main.c \
 					utils/print_stack.c utils/ft_stack_size.c \
 					utils/ft_stackadd_back.c utils/ft_stackadd_front.c \
 					utils/ft_stack_last.c \
+					utils/sol_list.c \
 					swap/push_swap.c \
 					swap/pp.c \
 					swap/ss.c \
