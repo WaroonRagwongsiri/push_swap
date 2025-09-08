@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 17:35:12 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/09/08 11:23:26 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/08 16:03:31 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 // push_swap
 void	push_swap(t_stack **stack_a, t_stack **stack_b)
 {
-	if (ft_stack_size(*stack_a) <= 3)
+	if (is_stack_a_sort(stack_a))
+		return ;
+	else if (ft_stack_size(*stack_a) <= 3)
 		small_sort(stack_a, stack_b);
-	print_all_stack(*stack_a, *stack_b);
+	else
+		big_sort(stack_a, stack_b);
 }

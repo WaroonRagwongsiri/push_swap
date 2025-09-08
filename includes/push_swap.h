@@ -35,6 +35,7 @@ void	ft_stackadd_back(t_stack **head, t_stack *new);
 void	ft_stackadd_front(t_stack **head, t_stack *new);
 int		ft_stack_size(t_stack *stack);
 t_stack	*ft_stack_last(t_stack *stack);
+void	ft_stack_index(t_stack **stack);
 
 // Error
 void	put_error(void);
@@ -75,6 +76,10 @@ void	rrr(t_stack **stack_a, t_stack **stack_b);
 
 // Sort
 void	small_sort(t_stack **stack_a, t_stack **stack_b);
-void	sort_three(t_stack **stack_a, t_stack **stack_b);
+void	sort_a_three_asc(t_stack **stack_a, t_stack **stack_b);
+void	big_sort(t_stack **stack_a, t_stack **stack_b);
+void	cheapest_to_b(t_stack **stack_a, t_stack **stack_b);
+void	b_to_a(t_stack **stack_a, t_stack **stack_b);
+void	sort_a(t_stack **stack_a);
 
 #endif

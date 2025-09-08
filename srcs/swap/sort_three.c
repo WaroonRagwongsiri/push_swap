@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 11:23:32 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/09/08 11:23:38 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/08 14:36:17 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ void	small_sort(t_stack **stack_a, t_stack **stack_b)
 		sa(stack_a, stack_b);
 		return ;
 	}
-	sort_three(stack_a, stack_b);
+	sort_a_three_asc(stack_a, stack_b);
 }
 
-void	sort_three(t_stack **stack_a, t_stack **stack_b)
+void	sort_a_three_asc(t_stack **stack_a, t_stack **stack_b)
 {
 	long	top;
 	long	middle;
