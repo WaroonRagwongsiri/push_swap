@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 17:35:12 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/09/07 21:53:51 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/08 11:17:20 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	push_swap(t_stack **stack_a, t_stack **stack_b)
 	print_all_stack(*stack_a, *stack_b);
 }
 
-int	is_sort(t_stack **stack_a)
+int	is_stack_a_sort(t_stack **stack_a)
 {
 	t_stack	*curr;
 
@@ -37,11 +37,10 @@ int	is_sort(t_stack **stack_a)
 void	small_sort(t_stack **stack_a, t_stack **stack_b)
 {
 	if (ft_stack_size(*stack_a) == 0 || ft_stack_size(*stack_a) == 1
-		|| is_sort(stack_a))
+		|| is_stack_a_sort(stack_a))
 		return ;
 	if (ft_stack_size((*stack_a)) == 2)
 	{
-		ft_putstr_fd("sa\n", 1);
 		sa(stack_a, stack_b);
 		return ;
 	}
@@ -62,14 +61,14 @@ void	sort_three(t_stack **stack_a, t_stack **stack_b)
 	else if (top > middle && top > last)
 	{
 		ra(stack_a, stack_b);
-		if (is_sort(stack_a))
+		if (is_stack_a_sort(stack_a))
 			return ;
 		sa(stack_a, stack_b);
 	}
 	else
 	{
 		rra(stack_a, stack_b);
-		if (is_sort(stack_a))
+		if (is_stack_a_sort(stack_a))
 			return ;
 		sa(stack_a, stack_b);
 	}

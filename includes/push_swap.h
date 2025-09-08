@@ -45,7 +45,7 @@ int		check_argv(int argc, char **argv);
 int		check_valid(char *str);
 
 // Utils
-int		is_sort(t_stack **stack_a);
+int		is_stack_a_sort(t_stack **stack_a);
 void	end(t_stack **stack_a, t_stack **stack_b);
 void	print_stack(t_stack *stack);
 void	print_all_stack(t_stack *stack_a, t_stack *stack_b);
