@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 21:03:38 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/09/09 20:41:34 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/09 21:20:14 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,17 @@ void	a_to_b_cost(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*cur;
 	int		push_cost;
+	int		stack_a_size;
 
-	if (!stack_a || !stack_b)
+	if (!stack_a || !stack_b || !*stack_a)
 		return ;
+	stack_a_size = ft_stack_size(*stack_a);
 	cur = *stack_a;
 	while (cur)
 	{
-		push_cost = 1;
-		if (cur->index > ft_stack_size(*stack_a))
-			push_cost += ft_stack_size(*stack_a) - cur->index;
+		push_cost = 0;
+		if (cur->index > stack_a_size / 2)
+			push_cost += stack_a_size - cur->index;
 		else
 			push_cost += cur->index;
 		push_cost += cost_closest_smaller(cur, stack_b);
@@ -35,22 +37,25 @@ void	a_to_b_cost(t_stack **stack_a, t_stack **stack_b)
 
 int	cost_closest_smaller(t_stack *node_stack_a, t_stack **stack_b)
 {
-	t_stack	*max;
-	t_stack	*target;
 	t_stack	*cur;
+	t_stack	*target;
+	t_stack	*max;
 
-	target = *stack_b;
-	max = *stack_b;
 	cur = *stack_b;
+	target = NULL;
+	max = *stack_b;
 	while (cur)
 	{
 		if (cur->val > max->val)
 			max = cur;
-		if (cur->val < node_stack_a->val && cur->val > target->val)
-			target = cur;
+		if (cur->val < node_stack_a->val)
+		{
+			if (target == NULL || cur->val > target->val)
+				target = cur;
+		}
 		cur = cur->next;
 	}
-	if (target->val > node_stack_a->val)
+	if (target == NULL)
 		target = max;
 	node_stack_a->target = target;
 	if (target->index > ft_stack_size(*stack_b) / 2)

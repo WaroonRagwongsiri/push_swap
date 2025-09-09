@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 11:24:48 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/09/09 20:41:12 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/09 21:02:03 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,22 +56,22 @@ void	operate_cheapest_a_to_b(int a_count, int b_count, t_stack **stack_a, t_stac
 	t_stack	*choosen_node;
 
 	choosen_node = cheapest_node(stack_a);
-	if (choosen_node->index > ft_stack_size(*stack_a) / 2 && a_count != 0)
+	if (choosen_node->index > ft_stack_size(*stack_a) / 2)
 	{
 		while (a_count-- > 0)
 			rra(stack_a, stack_b);
 	}
-	else if (a_count != 0)
+	else
 	{
 		while (a_count-- > 0)
 			ra(stack_a, stack_b);
 	}
-	if (b_count > ft_stack_size(*stack_b) / 2 && b_count != 0)
+	if (choosen_node->target->index > ft_stack_size(*stack_b) / 2)
 	{
 		while (b_count-- > 0)
 			rrb(stack_a, stack_b);
 	}
-	else if (b_count != 0)
+	else
 	{
 		while (b_count-- > 0)
 			rb(stack_a, stack_b);
