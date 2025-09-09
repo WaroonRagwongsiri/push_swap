@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 20:29:21 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/09/08 13:38:30 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/09 17:18:31 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 	first->next = NULL;
 	first->prev = NULL;
 	ft_stackadd_front(stack_a, first);
+	ft_stack_index(stack_a);
 	if (sol_list("pa") < 0)
 		end(stack_a, stack_b);
 }
@@ -46,6 +47,7 @@ void	pb(t_stack **stack_a, t_stack **stack_b)
 	first->next = NULL;
 	first->prev = NULL;
 	ft_stackadd_front(stack_b, first);
+	ft_stack_index(stack_b);
 	if (sol_list("pb") < 0)
 		end(stack_a, stack_b);
 }
