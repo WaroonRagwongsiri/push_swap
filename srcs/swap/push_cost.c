@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 21:03:38 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/09/09 16:10:58 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/09 16:42:20 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int	cost_closest_smaller(t_stack *node_stack_a, t_stack **stack_b)
 			target = cur;
 		if (cur->val > max->val)
 			max = cur;
+		cur = cur->next;
 	}
 	if (target->val > node_stack_a->val)
 		target = max;
@@ -62,14 +63,14 @@ int	cost_closest_smaller(t_stack *node_stack_a, t_stack **stack_b)
 	return (target->index);
 }
 
-t_stack	*cheapest_node(t_stack **stack_a, t_stack **stack_b)
+t_stack	*cheapest_node(t_stack **stack_a)
 {
 	int		cheapest_cost;
 	t_stack	*cheapest_node;
 	t_stack	*cur;
 
 	cheapest_cost = 0;
-	cheapest_node = 0;
+	cheapest_node = NULL;
 	cur	= *stack_a;
 	while (cur)
 	{

@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 11:24:48 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/09/09 16:26:42 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/09 16:51:58 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	cheapest_a_to_b(t_stack **stack_a, t_stack **stack_b)
 	int		b_count;
 
 	a_to_b_cost(stack_a, stack_b);
-	choosen_node = cheapest_node(stack_a, stack_b);
+	choosen_node = cheapest_node(stack_a);
 	if (choosen_node->index > ft_stack_size(*stack_a) / 2)
 		a_count = ft_stack_size(*stack_a) - choosen_node->index;
 	else
@@ -53,27 +53,28 @@ void	operate_cheapest_a_to_b(int a_count, int b_count, t_stack **stack_a, t_stac
 {
 	t_stack	*choosen_node;
 
-	choosen_node = cheapest_node(stack_a, stack_b);
-	if (choosen_node->index > ft_stack_size(*stack_a) / 2)
+	choosen_node = cheapest_node(stack_a);
+	if (choosen_node->index > ft_stack_size(*stack_a) / 2 && a_count != 0)
 	{
 		while (a_count-- > 0)
 			rra(stack_a, stack_b);
 	}
-	else
+	else if (a_count != 0)
 	{
 		while (a_count-- > 0)
 			ra(stack_a, stack_b);
 	}
-	if (b_count > ft_stack_size(*stack_b) / 2)
+	if (b_count > ft_stack_size(*stack_b) / 2 && b_count != 0)
 	{
 		while (b_count-- > 0)
 			rrb(stack_a, stack_b);
 	}
-	else
+	else if (b_count != 0)
 	{
 		while (b_count-- > 0)
 			rb(stack_a, stack_b);
 	}
+	pb(stack_a, stack_b);
 }
 
 void	b_to_a(t_stack **stack_a, t_stack **stack_b)
