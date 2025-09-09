@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 11:24:48 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/09/09 17:13:06 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/09 20:41:12 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,13 @@ void	big_sort(t_stack **stack_a, t_stack **stack_b)
 	{
 		pb(stack_a, stack_b);
 		pb(stack_a, stack_b);
+		if ((*stack_b)->val < (*stack_b)->next->val)
+			sb(stack_a, stack_b);
 	}
 	while (ft_stack_size(*stack_a) > 3)
 		cheapest_a_to_b(stack_a, stack_b);
 	sort_a_three_asc(stack_a, stack_b);
-	b_to_a(stack_a, stack_b);
+	// b_to_clossest_bigger_a(stack_a, stack_b);
 	if (is_stack_a_sort(stack_a))
 		return ;
 	sort_a(stack_a);
@@ -77,10 +79,14 @@ void	operate_cheapest_a_to_b(int a_count, int b_count, t_stack **stack_a, t_stac
 	pb(stack_a, stack_b);
 }
 
-void	b_to_a(t_stack **stack_a, t_stack **stack_b)
+void	b_to_clossest_bigger_a(t_stack **stack_a, t_stack **stack_b)
 {
-	(void) stack_a;
-	(void) stack_b;
+	while (ft_stack_size(*stack_b) > 0)
+	{
+		set_target_b_to_a(stack_a, *stack_b);
+		target_a_to_top(*stack_b, stack_a, stack_b);
+		pa(stack_a, stack_b);
+	}
 }
 
 void	sort_a(t_stack **stack_a)

@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 14:53:00 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/09/08 13:44:46 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/09 19:32:14 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int argc, char **argv)
 	parser(argc, argv, &stack_a);
 	push_swap(&stack_a, &stack_b);
 	print_all_stack(stack_a, stack_b);
-	sol_list("print");
+	// sol_list("print");
 	end(&stack_a, &stack_b);
 	return (0);
 }

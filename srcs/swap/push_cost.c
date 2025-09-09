@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 21:03:38 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/09/09 16:42:20 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/09 20:41:34 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	a_to_b_cost(t_stack **stack_a, t_stack **stack_b)
 	cur = *stack_a;
 	while (cur)
 	{
-		push_cost = 0;
+		push_cost = 1;
 		if (cur->index > ft_stack_size(*stack_a))
 			push_cost += ft_stack_size(*stack_a) - cur->index;
 		else
@@ -39,20 +39,15 @@ int	cost_closest_smaller(t_stack *node_stack_a, t_stack **stack_b)
 	t_stack	*target;
 	t_stack	*cur;
 
-	target = NULL;
-	max = NULL;
+	target = *stack_b;
+	max = *stack_b;
 	cur = *stack_b;
 	while (cur)
 	{
-		if (!target || !max)
-		{
-			max = cur;
-			target = cur;
-		}
-		if (cur->val >= target-> val && cur->val <= node_stack_a->val)
-			target = cur;
 		if (cur->val > max->val)
 			max = cur;
+		if (cur->val < node_stack_a->val && cur->val > target->val)
+			target = cur;
 		cur = cur->next;
 	}
 	if (target->val > node_stack_a->val)
@@ -65,16 +60,14 @@ int	cost_closest_smaller(t_stack *node_stack_a, t_stack **stack_b)
 
 t_stack	*cheapest_node(t_stack **stack_a)
 {
-	int		cheapest_cost;
 	t_stack	*cheapest_node;
 	t_stack	*cur;
 
-	cheapest_cost = 0;
-	cheapest_node = NULL;
+	cheapest_node = *stack_a;
 	cur	= *stack_a;
 	while (cur)
 	{
-		if (cur->push_cost < cheapest_cost)
+		if (cur->push_cost < cheapest_node->push_cost)
 			cheapest_node = cur;
 		cur = cur->next;
 	}
