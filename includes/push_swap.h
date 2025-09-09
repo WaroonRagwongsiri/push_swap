@@ -22,10 +22,12 @@
 // Stack
 typedef struct s_stack
 {
-	long long		val;
-	long			index;
+	long			val;
+	int				index;
+	int				push_cost;
 	struct s_stack	*next;
 	struct s_stack	*prev;
+	struct s_stack	*target;
 }	t_stack;
 
 // Stack
@@ -78,8 +80,12 @@ void	rrr(t_stack **stack_a, t_stack **stack_b);
 void	small_sort(t_stack **stack_a, t_stack **stack_b);
 void	sort_a_three_asc(t_stack **stack_a, t_stack **stack_b);
 void	big_sort(t_stack **stack_a, t_stack **stack_b);
-void	cheapest_to_b(t_stack **stack_a, t_stack **stack_b);
+void	cheapest_a_to_b(t_stack **stack_a, t_stack **stack_b);
 void	b_to_a(t_stack **stack_a, t_stack **stack_b);
 void	sort_a(t_stack **stack_a);
+void	a_to_b_cost(t_stack **stack_a, t_stack **stack_b);
+int		cost_closest_smaller(t_stack *node_stack_a, t_stack **stack_b);
+t_stack	*cheapest_node(t_stack **stack_a, t_stack **stack_b);
+void	operate_cheapest_a_to_b(int a_count, int b_count, t_stack **stack_a, t_stack **stack_b);
 
 #endif

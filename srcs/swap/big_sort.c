@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 11:24:48 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/09/08 16:02:48 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/09 16:26:42 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	big_sort(t_stack **stack_a, t_stack **stack_b)
 		pb(stack_a, stack_b);
 	}
 	while (ft_stack_size(*stack_a) > 3)
-		cheapest_to_b(stack_a, stack_b);
+		cheapest_a_to_b(stack_a, stack_b);
 	sort_a_three_asc(stack_a, stack_b);
 	b_to_a(stack_a, stack_b);
 	if (is_stack_a_sort(stack_a))
@@ -30,10 +30,50 @@ void	big_sort(t_stack **stack_a, t_stack **stack_b)
 	sort_a(stack_a);
 }
 
-void	cheapest_to_b(t_stack **stack_a, t_stack **stack_b)
+void	cheapest_a_to_b(t_stack **stack_a, t_stack **stack_b)
 {
-	(void) stack_a;
-	(void) stack_b;
+	t_stack	*choosen_node;
+	int		a_count;
+	int		b_count;
+
+	a_to_b_cost(stack_a, stack_b);
+	choosen_node = cheapest_node(stack_a, stack_b);
+	if (choosen_node->index > ft_stack_size(*stack_a) / 2)
+		a_count = ft_stack_size(*stack_a) - choosen_node->index;
+	else
+		a_count = choosen_node->index;
+	if (choosen_node->target->index > ft_stack_size(*stack_b) / 2)
+		b_count = ft_stack_size(*stack_b) - choosen_node->target->index;
+	else
+		b_count = choosen_node->target->index;
+	operate_cheapest_a_to_b(a_count, b_count, stack_a, stack_b);
+}
+
+void	operate_cheapest_a_to_b(int a_count, int b_count, t_stack **stack_a, t_stack **stack_b)
+{
+	t_stack	*choosen_node;
+
+	choosen_node = cheapest_node(stack_a, stack_b);
+	if (choosen_node->index > ft_stack_size(*stack_a) / 2)
+	{
+		while (a_count-- > 0)
+			rra(stack_a, stack_b);
+	}
+	else
+	{
+		while (a_count-- > 0)
+			ra(stack_a, stack_b);
+	}
+	if (b_count > ft_stack_size(*stack_b) / 2)
+	{
+		while (b_count-- > 0)
+			rrb(stack_a, stack_b);
+	}
+	else
+	{
+		while (b_count-- > 0)
+			rb(stack_a, stack_b);
+	}
 }
 
 void	b_to_a(t_stack **stack_a, t_stack **stack_b)
