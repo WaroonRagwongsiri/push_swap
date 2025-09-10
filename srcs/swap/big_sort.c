@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   big_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
+/*   By: waroonclearwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 11:24:48 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/09/09 21:02:03 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/09 21:49:16 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,17 @@ void	big_sort(t_stack **stack_a, t_stack **stack_b)
 		if ((*stack_b)->val < (*stack_b)->next->val)
 			sb(stack_a, stack_b);
 	}
-	while (ft_stack_size(*stack_a) > 3)
+	while (ft_stack_size(*stack_a) > 0)
 		cheapest_a_to_b(stack_a, stack_b);
-	sort_a_three_asc(stack_a, stack_b);
+	// sort_a_three_asc(stack_a, stack_b);
+	while (ft_stack_size(*stack_b) > 0)
+	{
+		pa(stack_a, stack_b);
+	}
 	// b_to_clossest_bigger_a(stack_a, stack_b);
 	if (is_stack_a_sort(stack_a))
 		return ;
-	sort_a(stack_a);
+	sort_a(stack_a, stack_b);
 }
 
 void	cheapest_a_to_b(t_stack **stack_a, t_stack **stack_b)
@@ -89,7 +93,23 @@ void	b_to_clossest_bigger_a(t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
-void	sort_a(t_stack **stack_a)
+void	sort_a(t_stack **stack_a, t_stack **stack_b)
 {
-	(void) stack_a;
+	t_stack	*min;
+	int	op_count;
+
+	min = get_min(stack_a);
+	op_count = 0;
+	if (min->index > ft_stack_size(*stack_a) / 2)
+	{
+		op_count += ft_stack_size(*stack_a) - min->index;
+		while (op_count-- > 0)
+			rra(stack_a, stack_b);
+	}
+	else
+	{
+		op_count += min->index;
+		while (op_count-- > 0)
+			ra(stack_a, stack_b);	
+	}
 }

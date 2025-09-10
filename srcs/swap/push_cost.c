@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 21:03:38 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/09/09 21:20:14 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/10 10:04:52 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	cost_closest_smaller(t_stack *node_stack_a, t_stack **stack_b)
 	{
 		if (cur->val > max->val)
 			max = cur;
-		if (cur->val < node_stack_a->val)
+		if (cur->val <= node_stack_a->val)
 		{
 			if (target == NULL || cur->val > target->val)
 				target = cur;
