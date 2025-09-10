@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 10:13:13 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/09/10 10:14:00 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/10 22:11:59 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,35 +49,6 @@ void	cheapest_a_to_b(t_stack **stack_a, t_stack **stack_b)
 	else
 		b_count = choosen_node->target->index;
 	operate_cheapest_a_to_b(a_count, b_count, stack_a, stack_b);
-}
-
-void	operate_cheapest_a_to_b(int a_count, int b_count
-	, t_stack **stack_a, t_stack **stack_b)
-{
-	t_stack	*choosen_node;
-
-	choosen_node = cheapest_node(stack_a);
-	if (choosen_node->index > ft_stack_size(*stack_a) / 2)
-	{
-		while (a_count-- > 0)
-			rra(stack_a, stack_b);
-	}
-	else
-	{
-		while (a_count-- > 0)
-			ra(stack_a, stack_b);
-	}
-	if (choosen_node->target->index > ft_stack_size(*stack_b) / 2)
-	{
-		while (b_count-- > 0)
-			rrb(stack_a, stack_b);
-	}
-	else
-	{
-		while (b_count-- > 0)
-			rb(stack_a, stack_b);
-	}
-	pb(stack_a, stack_b);
 }
 
 void	b_to_clossest_bigger_a(t_stack **stack_a, t_stack **stack_b)
