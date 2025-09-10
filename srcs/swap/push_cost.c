@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 21:03:38 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/09/10 10:04:52 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/10 10:14:42 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ t_stack	*cheapest_node(t_stack **stack_a)
 	t_stack	*cur;
 
 	cheapest_node = *stack_a;
-	cur	= *stack_a;
+	cur = *stack_a;
 	while (cur)
 	{
 		if (cur->push_cost < cheapest_node->push_cost)

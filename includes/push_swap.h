@@ -86,9 +86,12 @@ void	sort_a(t_stack **stack_a, t_stack **stack_b);
 void	a_to_b_cost(t_stack **stack_a, t_stack **stack_b);
 int		cost_closest_smaller(t_stack *node_stack_a, t_stack **stack_b);
 t_stack	*cheapest_node(t_stack **stack_a);
-void	operate_cheapest_a_to_b(int a_count, int b_count, t_stack **stack_a, t_stack **stack_b);
-void	set_target_b_to_a(t_stack **stack_a, t_stack *node_stack_b);
-void	target_a_to_top(t_stack *choosen_node, t_stack **stack_a, t_stack **stack_b);
+void	operate_cheapest_a_to_b(int a_count, int b_count,
+			t_stack **stack_a, t_stack **stack_b);
+void	set_target_b_to_a(t_stack **stack_a,
+			t_stack *node_stack_b);
+void	target_a_to_top(t_stack *choosen_node,
+			t_stack **stack_a, t_stack **stack_b);
 t_stack	*get_min(t_stack **stack);
 
 #endif

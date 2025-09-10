@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 23:37:38 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/09/09 21:46:46 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/10 10:15:03 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	rra(t_stack **stack_a, t_stack **stack_b)
 	t_stack	*last;
 
 	if (ft_stack_size(*stack_a) < 2)
-		return ;	
+		return ;
 	current = *stack_a;
 	last = ft_stack_last(*stack_a);
 	while (current->next != last)
@@ -40,7 +40,7 @@ void	rrb(t_stack **stack_a, t_stack **stack_b)
 	t_stack	*last;
 
 	if (ft_stack_size(*stack_b) < 2)
-		return ;	
+		return ;
 	current = *stack_b;
 	last = ft_stack_last(*stack_b);
 	while (current->next != last)

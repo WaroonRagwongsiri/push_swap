@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 18:41:13 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/09/10 10:01:30 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/10 10:14:24 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ void	set_target_b_to_a(t_stack **stack_a, t_stack *node_stack_b)
 	node_stack_b->target = target;
 }
 
-void	target_a_to_top(t_stack *choosen_node, t_stack **stack_a, t_stack **stack_b)
+void	target_a_to_top(t_stack *choosen_node
+	, t_stack **stack_a, t_stack **stack_b)
 {
 	int	op_count;
 
@@ -52,6 +53,6 @@ void	target_a_to_top(t_stack *choosen_node, t_stack **stack_a, t_stack **stack_b
 	{
 		op_count += choosen_node->target->index;
 		while (op_count-- > 0)
-			ra(stack_a, stack_b);	
+			ra(stack_a, stack_b);
 	}
 }
