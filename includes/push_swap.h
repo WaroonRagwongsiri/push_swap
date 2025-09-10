@@ -100,5 +100,6 @@ t_stack	*get_min(t_stack **stack);
 // Bonus
 void	command(t_stack **stack_a, t_stack **stack_b);
 int		check_command(char *command, t_stack **stack_a, t_stack **stack_b);
+void	end_error_checker(t_stack **stack_a, t_stack **stack_b);
 
 #endif

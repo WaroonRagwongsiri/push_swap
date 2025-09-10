@@ -6,11 +6,12 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 15:09:15 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/09/10 20:07:48 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/10 21:42:36 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "get_next_line.h"
 
 int	main(int argc, char **argv)
 {
@@ -25,38 +26,28 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	parser(argc, argv, &stack_a);
 	if (is_duplicate(&stack_a))
-		end(&stack_a, &stack_b);
+		end_error_checker(&stack_a, &stack_b);
 	command(&stack_a, &stack_b);
 	if (is_stack_a_sort(&stack_a) && ft_stack_size(stack_b) == 0)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
-	ft_stackclear(&stack_a);
-	ft_stackclear(&stack_b);
-	sol_list("free");
+	end(&stack_a, &stack_b);
 	return (0);
 }
 
 void	command(t_stack **stack_a, t_stack **stack_b)
 {
-	char	buffer[1024];
-	int		bytes_read;
+	char	*line;
 
-	bytes_read = 1;
-	while (bytes_read > 0)
+	line = get_next_line(0);
+	while (line)
 	{
-		ft_bzero(buffer, sizeof(buffer));
-		bytes_read = read(0, buffer, sizeof(buffer));
-		if (bytes_read < 0)
-		{
-			write(2, "Error\n", 6);
-			end(stack_a, stack_b);
-		}
-		if (!check_command(buffer, stack_a, stack_b))
-		{
-			write(2, "Error\n", 6);
-			end(stack_a, stack_b);
-		}
+		ft_putstr_fd(line, 1);
+		if (!check_command(line, stack_a, stack_b))
+			end_error_checker(stack_a, stack_b);
+		free(line);
+		line = get_next_line(0);
 	}
 }
 

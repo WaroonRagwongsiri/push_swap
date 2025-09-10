@@ -33,6 +33,7 @@ SRCS_FILES		:=	main.c \
 					swap/ss.c \
 					swap/rr.c \
 					swap/rrr.c \
+					utils/end.c \
 
 SRCS			:=	$(SRCS_FILES:%.c=$(SRCS_DIR)%.c)
 OBJS			:=	$(SRCS:%.c=%.o)
@@ -40,7 +41,7 @@ OBJS			:=	$(SRCS:%.c=%.o)
 UTILS_OBJS		:=	$(filter-out $(SRCS_DIR)main.o, $(OBJS))
 
 BONUS_DIR		:=	bonus/
-BONUS_FILES		:=	main.c
+BONUS_FILES		:=	main.c get_next_line.c get_next_line_utils.c
 
 BONUS			:=	$(BONUS_FILES:%.c=$(BONUS_DIR)%.c)
 BONUS_OBJS		:=	$(BONUS:%.c=%.o)
