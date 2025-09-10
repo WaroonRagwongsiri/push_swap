@@ -20,6 +20,7 @@ SRCS_DIR		:=	srcs/
 
 SRCS_FILES		:=	main.c \
 					utils/put_error.c utils/check_argv.c utils/parser.c \
+					utils/ft_atol.c \
 					utils/ft_stacknew.c utils/ft_stackclear.c \
 					utils/print_stack.c utils/ft_stack_size.c \
 					utils/ft_stackadd_back.c utils/ft_stackadd_front.c \

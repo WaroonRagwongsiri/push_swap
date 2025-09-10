@@ -52,6 +52,8 @@ void	end(t_stack **stack_a, t_stack **stack_b);
 void	print_stack(t_stack *stack);
 void	print_all_stack(t_stack *stack_a, t_stack *stack_b);
 void	put_nbr(void *nbr);
+void	free_split(char **arr, int count);
+long	ft_atol(char *nptr);
 
 // List Command uses Utils
 void	do_nothing(void *ptr);
@@ -60,6 +62,7 @@ void	print_iter(void *ptr);
 
 // Parser
 void	parser(int argc, char **argv, t_stack **head);
+void	parse_each_argv(char *str, t_stack **head);
 
 // PushSwap
 void	push_swap(t_stack **stack_a, t_stack **stack_b);
