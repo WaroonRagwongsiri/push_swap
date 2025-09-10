@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 11:36:35 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/09/08 13:37:00 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/10 10:24:20 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,5 @@ void	ft_stackadd_back(t_stack **head, t_stack *new)
 		curr = curr->next;
 	new->next = NULL;
 	curr->next = new;
-	curr->next->prev = curr;
 	ft_stack_index(head);
 }

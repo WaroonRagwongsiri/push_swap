@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 23:37:38 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/09/10 10:15:03 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/10 10:24:03 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ void	rra(t_stack **stack_a, t_stack **stack_b)
 	while (current->next != last)
 		current = current->next;
 	current->next = NULL;
-	last->prev = NULL;
 	last->next = *stack_a;
-	(*stack_a)->prev = last;
 	*stack_a = last;
 	ft_stack_index(stack_a);
 	ft_stack_index(stack_b);
@@ -46,9 +44,7 @@ void	rrb(t_stack **stack_a, t_stack **stack_b)
 	while (current->next != last)
 		current = current->next;
 	current->next = NULL;
-	last->prev = NULL;
 	last->next = *stack_b;
-	(*stack_b)->prev = last;
 	*stack_b = last;
 	ft_stack_index(stack_a);
 	ft_stack_index(stack_b);

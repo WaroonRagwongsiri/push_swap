@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 11:40:26 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/09/09 15:59:08 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/10 10:24:32 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,5 @@ t_stack	*ft_stacknew(long val)
 	new->push_cost = -1;
 	new->target = NULL;
 	new->next = NULL;
-	new->prev = NULL;
 	return (new);
 }

@@ -26,7 +26,6 @@ typedef struct s_stack
 	int				index;
 	int				push_cost;
 	struct s_stack	*next;
-	struct s_stack	*prev;
 	struct s_stack	*target;
 }	t_stack;
 
