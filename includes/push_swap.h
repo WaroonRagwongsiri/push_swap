@@ -54,6 +54,7 @@ void	print_all_stack(t_stack *stack_a, t_stack *stack_b);
 void	put_nbr(void *nbr);
 void	free_split(char **arr, int count);
 long	ft_atol(char *nptr);
+int		is_duplicate(t_stack **stack_a);
 
 // List Command uses Utils
 void	do_nothing(void *ptr);
@@ -95,5 +96,9 @@ void	set_target_b_to_a(t_stack **stack_a,
 void	target_a_to_top(t_stack *choosen_node,
 			t_stack **stack_a, t_stack **stack_b);
 t_stack	*get_min(t_stack **stack);
+
+// Bonus
+void	command(t_stack **stack_a, t_stack **stack_b);
+int		check_command(char *command, t_stack **stack_a, t_stack **stack_b);
 
 #endif

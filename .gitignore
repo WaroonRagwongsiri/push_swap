@@ -5,3 +5,4 @@ push_swap
 *test*
 *.out
 checker_linux
+checker*

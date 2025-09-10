@@ -11,6 +11,7 @@
 # **************************************************************************** #
 
 NAME			:=	push_swap
+BONUS_NAME		:=	checker
 
 CC				:=	cc
 CFLAG			:=	-Wall -Wextra -Werror -g3
@@ -20,7 +21,7 @@ SRCS_DIR		:=	srcs/
 
 SRCS_FILES		:=	main.c \
 					utils/put_error.c utils/check_argv.c utils/parser.c \
-					utils/ft_atol.c \
+					utils/ft_atol.c utils/is_duplicate.c \
 					utils/ft_stacknew.c utils/ft_stackclear.c \
 					utils/print_stack.c utils/ft_stack_size.c \
 					utils/ft_stackadd_back.c utils/ft_stackadd_front.c \
@@ -36,7 +37,15 @@ SRCS_FILES		:=	main.c \
 SRCS			:=	$(SRCS_FILES:%.c=$(SRCS_DIR)%.c)
 OBJS			:=	$(SRCS:%.c=%.o)
 
-all				:	$(NAME)
+UTILS_OBJS		:=	$(filter-out $(SRCS_DIR)main.o, $(OBJS))
+
+BONUS_DIR		:=	bonus/
+BONUS_FILES		:=	main.c
+
+BONUS			:=	$(BONUS_FILES:%.c=$(BONUS_DIR)%.c)
+BONUS_OBJS		:=	$(BONUS:%.c=%.o)
+
+all				:	$(NAME) Makefile
 
 $(NAME)			:	$(OBJS) Makefile
 	@make -C libft
@@ -44,17 +53,30 @@ $(NAME)			:	$(OBJS) Makefile
 	$(CC) $(CFLAG) -I$(INC_DIR) $(OBJS) libft.a -o $@
 
 $(OBJS)			:	%.o : %.c
-	@$(CC) $(CFLAG) -I$(INC_DIR) -c $< -o $@
+	$(CC) $(CFLAG) -I$(INC_DIR) -c $< -o $@
 
 clean			:
 	rm -rf $(OBJS)
+	rm -rf $(BONUS_OBJS)
+	rm -rf $(UTILS_OBJS)
 	@make -C libft clean
 
 fclean			:	clean
 	rm -rf $(NAME)
 	rm -rf libft.a
+	rm -rf $(BONUS_NAME)
 	@make -C libft fclean
+
+bonus			:	$(BONUS_NAME)
+
+$(BONUS_NAME)	:	$(BONUS_OBJS) $(UTILS_OBJS) Makefile
+	@make -C libft
+	@cp libft/libft.a .
+	$(CC) $(CFLAG) -I$(INC_DIR) $(BONUS_OBJS) $(UTILS_OBJS) libft.a -o $@
+
+$(BONUS_OBJS)	:	%.o : %.c
+	$(CC) $(CFLAG) -I$(INC_DIR) -c $< -o $@
 
 re				:	fclean all
 
-.PHONY			:	all clean fclean re
+.PHONY			:	all clean fclean re bonus
