@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 12:16:48 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/09/10 22:18:12 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/11 12:05:33 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ra(t_stack **stack_a, t_stack **stack_b)
 	ft_stack_index(stack_a);
 	ft_stack_index(stack_b);
 	if (sol_list("ra") < 0)
-		end(stack_a, stack_b);
+		end_error_checker(stack_a, stack_b);
 }
 
 void	rb(t_stack **stack_a, t_stack **stack_b)
@@ -45,7 +45,7 @@ void	rb(t_stack **stack_a, t_stack **stack_b)
 	ft_stack_index(stack_a);
 	ft_stack_index(stack_b);
 	if (sol_list("rb") < 0)
-		end(stack_a, stack_b);
+		end_error_checker(stack_a, stack_b);
 }
 
 void	rr(t_stack **stack_a, t_stack **stack_b)
@@ -53,7 +53,7 @@ void	rr(t_stack **stack_a, t_stack **stack_b)
 	ra_no_print(stack_a, stack_b);
 	rb_no_print(stack_a, stack_b);
 	if (sol_list("rr") < 0)
-		end(stack_a, stack_b);
+		end_error_checker(stack_a, stack_b);
 }
 
 void	ra_no_print(t_stack **stack_a, t_stack **stack_b)
