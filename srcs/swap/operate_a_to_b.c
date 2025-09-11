@@ -6,13 +6,14 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 22:11:08 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/09/10 22:12:02 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/11 23:13:14 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	operate_cheapest_a_to_b(int a_count, int b_count, t_stack **stack_a, t_stack **stack_b)
+void	operate_cheapest_a_to_b(int a_count, int b_count
+			, t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*choosen_node;
 	int		a_reverse;
@@ -38,7 +39,7 @@ void	operate_cheapest_a_to_b(int a_count, int b_count, t_stack **stack_a, t_stac
 	pb(stack_a, stack_b);
 }
 
-void	r_a(int	a_count, int reverse, t_stack **stack_a, t_stack **stack_b)
+void	r_a(int a_count, int reverse, t_stack **stack_a, t_stack **stack_b)
 {
 	if (reverse)
 	{
@@ -52,7 +53,7 @@ void	r_a(int	a_count, int reverse, t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
-void	r_b(int	b_count, int reverse, t_stack **stack_a, t_stack **stack_b)
+void	r_b(int b_count, int reverse, t_stack **stack_a, t_stack **stack_b)
 {
 	if (reverse)
 	{

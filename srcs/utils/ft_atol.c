@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 14:43:42 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/09/10 14:45:41 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/11 23:13:40 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ long	ft_atol(char *nptr)
 	long long	ans;
 	int			neg;
 	int			i;
-	
-		if (!nptr)
+
+	if (!nptr)
 		return (0);
 	i = 0;
 	ans = 0;

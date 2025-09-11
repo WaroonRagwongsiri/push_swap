@@ -100,8 +100,8 @@ void	set_target_b_to_a(t_stack **stack_a,
 void	target_a_to_top(t_stack *choosen_node,
 			t_stack **stack_a, t_stack **stack_b);
 t_stack	*get_min(t_stack **stack);
-void	r_a(int	a_count, int reverse, t_stack **stack_a, t_stack **stack_b);
-void	r_b(int	b_count, int reverse, t_stack **stack_a, t_stack **stack_b);
+void	r_a(int a_count, int reverse, t_stack **stack_a, t_stack **stack_b);
+void	r_b(int b_count, int reverse, t_stack **stack_a, t_stack **stack_b);
 
 // Bonus
 void	command(t_stack **stack_a, t_stack **stack_b);
