@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 10:13:13 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/09/10 22:11:59 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/11 22:28:12 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,9 @@ void	big_sort(t_stack **stack_a, t_stack **stack_b)
 		if ((*stack_b)->val < (*stack_b)->next->val)
 			sb(stack_a, stack_b);
 	}
-	while (ft_stack_size(*stack_a) > 0)
+	while (ft_stack_size(*stack_a) > 2)
 		cheapest_a_to_b(stack_a, stack_b);
-	while (ft_stack_size(*stack_b) > 0)
-		pa(stack_a, stack_b);
+	b_to_clossest_bigger_a(stack_a, stack_b);
 	if (is_stack_a_sort(stack_a))
 		return ;
 	sort_a(stack_a, stack_b);
