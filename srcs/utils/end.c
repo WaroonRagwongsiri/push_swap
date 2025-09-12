@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 21:39:15 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/09/10 21:40:20 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/12 17:16:54 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ void	end_error_checker(t_stack **stack_a, t_stack **stack_b)
 	ft_stackclear(stack_a);
 	ft_stackclear(stack_b);
 	sol_list("free");
-	write(1, "Error\n", 6);
+	write(2, "Error\n", 6);
 	exit(1);
 }

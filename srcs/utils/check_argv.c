@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 12:59:29 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/09/10 14:44:11 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/12 16:41:11 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int	check_valid(char *str)
 	i = 0;
 	wc = count_word_split(str, ' ');
 	all_str = ft_split(str, ' ');
+	if (wc == 0)
+		return (free_split(all_str, wc), 0);
 	if (!all_str)
 		return (0);
 	while (i < wc)
