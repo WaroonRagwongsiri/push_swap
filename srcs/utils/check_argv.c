@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 12:59:29 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/09/12 16:41:11 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/09/12 18:50:13 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,12 @@ int	check_valid(char *str)
 	int		i;
 	int		j;
 
-	i = 0;
+	i = -1;
 	wc = count_word_split(str, ' ');
 	all_str = ft_split(str, ' ');
-	if (wc == 0)
+	if (wc == 0 || !all_str)
 		return (free_split(all_str, wc), 0);
-	if (!all_str)
-		return (0);
-	while (i < wc)
+	while (++i < wc)
 	{
 		j = 0;
 		if (all_str[i][j] == '-')
@@ -54,7 +52,6 @@ int	check_valid(char *str)
 			if (!ft_isdigit(all_str[i][j++]))
 				return (free_split(all_str, wc), 0);
 		}
-		i++;
 	}
 	return (free_split(all_str, wc), 1);
 }
